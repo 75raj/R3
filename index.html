@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>LUCKY</title>
+  <style>
+    .flipbook {
+      width: 1000px;
+      height: 700px;
+      margin: 0 auto;
+    }
+    body {
+      margin: 0;
+      padding: 2px;
+      background: #02171b;
+    }
+    
+    /* Navigation Buttons */
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 800;
+      display: flex;
+      gap: 15px;
+    }
+    
+    .nav-btn {
+      padding: 5px 5px;
+      font-size: 12px;
+      font-weight: bold;
+      border: 2px solid red;
+      background: linear-gradient( #543dff);
+      color: rgb(251, 244, 43);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(0, 60, 255, 0.93);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .nav-btn:hover {
+      background: linear-gradient(45deg, #ff00f2, #ff69b4);
+      border-color: yellow;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgb(10, 26, 200);
+      transform: translateY(-2px);
+      color: #000000;
+    }
+    
+    /* TEXT BOX FORMAT FOR ALL PAGES - SAME AS #letter */
+    .page-text {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-around !important;
+      align-items: center !important;
+      background-color: rgba(125, 187, 223, 0.101) !important;
+      padding: 15px !important;
+      z-index: 5 !important;
+      left: 15px !important;
+      right: 15px !important;
+      bottom: 2px !important;
+      top: 15px !important;
+      box-shadow: 0px 1px 3px 0px rgb(223, 31, 31),
+        0px 1px 2px 0px rgba(2, 203, 92, 0.781) !important;
+      overflow: hidden !important;
+      font-size: 25px !important;
+      position: absolute !important;
+      width: calc(100% - 30px) !important;
+      text-align: center !important;
+      color: white !important;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    .page-text:hover {
+      background-color: rgba(255, 20, 145, 0.049) !important;
+      box-shadow: 0px 2px 6px 0px rgb(255, 255, 0),
+        0px 2px 4px 0px rgba(0, 255, 0, 0.8) !important;
+      transform: scale(1.02) !important;
+    }
+    
+    /* PAGE NUMBER - SMALL RIGHT CORNER WITH HOVER */
+    .page-number {
+      position: absolute !important;
+      bottom: 10px !important;
+      right: 10px !important;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52) !important;
+      color: white !important;
+      padding: 4px 8px !important;
+      border-radius: 50% !important;
+      font-weight: bold !important;
+      font-size: 12px !important;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.8) !important;
+      box-shadow: 0 1px 5px rgba(0, 255, 0, 0.4) !important;
+      border: 1px solid red !important;
+      z-index: 6 !important;
+      transition: all 0.3s ease !important;
+      width: 25px !important;
+      height: 25px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    .page-number:hover {
+      background: linear-gradient(45deg, #ff1493, #ff69b4) !important;
+      border-color: yellow !important;
+      box-shadow: 0 2px 8px rgba(0, 255, 0, 0.6) !important;
+      transform: scale(1.2) !important;
+      color: white !important;
+    }
+    
+    /* Cover Text Styling */
+    .hard small {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #a8e6cf, #88d8a3);
+      color: #1a1a1a;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      text-shadow: none;
+      box-shadow: 0 2px 10px rgba(0, 255, 0, 0.4);
+      border: 2px solid #5dade2;
+      transition: all 0.3s ease;
+    }
+    
+    .hard small:hover {
+      background: linear-gradient(45deg, #feca57, #0dff00);
+      border-color: yellow;
+      box-shadow: 0 4px 15px rgba(0, 255, 0, 0.6);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flipbook">
+    <!-- FRONT COVER -->
+    <div class="hard"> RISHI Gallery <small>~ ABHI ARRYA</small></div>
+    <!-- BACK COVER EMPTY -->
+    <div class="hard"></div>
+    
+    <!-- PAGE 1 -->
+    <div>
+      <img src="i (1).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 1">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">1</div>
+    </div>
+    
+    <!-- PAGE 2 -->
+    <div>
+      <img src="i (2).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 2">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">2</div>
+    </div>
+    
+    <!-- PAGE 3 -->
+    <div>
+      <img src="i (3).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 3">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">3</div>
+    </div>
+    
+    <!-- PAGE 4 -->
+    <div>
+      <img src="i (4).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 4">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">4</div>
+    </div>
+    
+    <!-- PAGE 5 -->
+    <div>
+      <img src="i (5).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 5">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">5</div>
+    </div>
+    
+    <!-- PAGE 6 -->
+    <div>
+      <img src="i (6).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 6">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">6</div>
+    </div>
+    
+    <!-- PAGE 7 -->
+    <div>
+      <img src="i (7).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 7">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">7</div>
+    </div>
+    
+    <!-- PAGE 8 -->
+    <div>
+      <img src="i (8).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 8">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">8</div>
+    </div>
+    
+    <!-- PAGE 9 -->
+    <div>
+      <img src="i (9).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 9">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">9</div>
+    </div>
+    
+    <!-- PAGE 10 -->
+    <div>
+      <img src="i (10).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 10">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">10</div>
+    </div>
+    
+    <!-- PAGE 11 -->
+    <div>
+      <img src="i (11).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 11">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">11</div>
+    </div>
+    
+    <!-- PAGE 12 -->
+    <div>
+      <img src="i (12).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 12">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">12</div>
+    </div>
+    
+    <!-- PAGE 13 -->
+    <div>
+      <img src="i (13).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 13">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">13</div>
+    </div>
+    
+    <!-- PAGE 14 -->
+    <div>
+      <img src="i (14).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 14">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">14</div>
+    </div>
+    
+    <!-- PAGE 15 -->
+    <div>
+      <img src="i (15).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 15">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">15</div>
+    </div>
+    
+    <!-- PAGE 16 -->
+    <div>
+      <img src="i (16).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 16">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">16</div>
+    </div>
+    
+    <!-- PAGE 17 -->
+    <div>
+      <img src="i (17).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 17">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">17</div>
+    </div>
+    
+    <!-- PAGE 18 -->
+    <div>
+      <img src="i (18).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 18">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">18</div>
+    </div>
+    
+    <!-- PAGE 19 -->
+    <div>
+      <img src="i (19).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 19">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">19</div>
+    </div>
+    
+    <!-- PAGE 20 -->
+    <div>
+      <img src="i (20).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 20">
+      <div class="page-text">
+        FLIP THE PAGE AND ENTER YOUT TEXT
+      </div>
+      <div class="page-number">20</div>
+    </div>
+    
+    <!-- BACK COVER EMPTY -->
+    <div class="hard"></div>
+    <!-- END COVER -->
+    <div class="hard">Thank You <small>~ ABHI ARRYA</small></div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav-buttons">
+    <button class="nav-btn" id="prevBtn">⬅️ Back</button>
+    <button class="nav-btn" id="nextBtn">Next ➡️</button>
+  </div>
+
+  <script src="jquery.js"></script>
+  <script src="turn.js"></script>
+  <script>
+    var flipbook = $(".flipbook");
+    flipbook.turn({
+      display: 'double',
+      acceleration: true,
+      gradients: true,
+      elevation: 50,
+      when: {
+        turned: function(event, page, view) {
+          // No video handling needed for images
+        }
+      }
+    });
+
+    // Next Button
+    $("#nextBtn").click(function() {
+      flipbook.turn("next");
+    });
+
+    // Previous Button
+    $("#prevBtn").click(function() {
+      flipbook.turn("previous");
+    });
+
+    // Keyboard Shortcuts
+    $(document).keydown(function(e) {
+      if (e.keyCode == 78 || e.keyCode == 39) { // N key or Right Arrow
+        e.preventDefault();
+        flipbook.turn("next");
+      }
+      if (e.keyCode == 66 || e.keyCode == 37) { // B key or Left Arrow
+        e.preventDefault();
+        flipbook.turn("previous");
+      }
+    });
+
+    // Instructions
+    console.log("Keyboard Shortcuts:");
+    console.log("N or → = Next Page");
+    console.log("B or ← = Previous Page");
+  </script>
+</body>
+
+</html>

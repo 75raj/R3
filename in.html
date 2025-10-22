@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electric Border Outline</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    :root {
+      --primary-glow: #00ffff;
+      --secondary-glow: #0080ff;
+      --bg-dark: #050505;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --blur-amount: 6px;
+      --glow-intensity: 0.3;
+    }
+
+    body {
+      background: radial-gradient(circle at center, var(--bg-dark) 0%, #000 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    /* Subtle background particles for added depth */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, var(--primary-glow), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(0, 255, 255, 0.4), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--secondary-glow), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(0, 128, 255, 0.6), transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: sparkle 20s linear infinite;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-200px); }
+    }
+
+    .card-container {
+      position: relative;
+      width: clamp(300px, 40vw, 380px);
+      height: 240px;
+      border-radius: 24px;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+      border: none;
+      backdrop-filter: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      filter: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-container:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Outline border only - outer glow */
+    .card-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      border: 2px solid transparent;
+      background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--primary-glow)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      filter: blur(0px);
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+      animation: borderGlow 3s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    .card-container:hover::before {
+      opacity: 1;
+      animation-duration: 1.5s;
+      filter: blur(2px);
+    }
+
+    @keyframes borderGlow {
+      0% { 
+        box-shadow: 
+          0 0 10px var(--primary-glow), 
+          inset 0 0 10px rgba(0,255,255,0.2);
+      }
+      100% { 
+        box-shadow: 
+          0 0 20px var(--primary-glow), 
+          0 0 30px var(--secondary-glow),
+          inset 0 0 20px rgba(0,128,255,0.3);
+      }
+    }
+
+    /* Inner outline glow for depth */
+    .card-container::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-glow);
+      filter: blur(2px);
+      opacity: 0.5;
+      z-index: -1;
+      animation: innerPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes innerPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Background glow aura around the outline */
+    .aura {
+      position: absolute;
+      inset: -20px;
+      border-radius: 44px;
+      background: radial-gradient(circle, rgba(0,255,255,0.1), transparent 70%);
+      z-index: -2;
+      animation: multiPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes multiPulse {
+      0%, 100% { 
+        opacity: 0.2; 
+        transform: scale(1) rotate(0deg); 
+      }
+      33% { 
+        opacity: 0.4; 
+        transform: scale(1.05) rotate(120deg); 
+      }
+      66% { 
+        opacity: 0.3; 
+        transform: scale(1.1) rotate(240deg); 
+      }
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: transparent;
+      border-radius: 20px;
+      max-width: calc(100% - 8px);
+      margin: 4px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--primary-glow);
+      backdrop-filter: blur(var(--blur-amount));
+      box-shadow: 0 0 12px rgba(0,255,255,0.3);
+      transition: all 0.3s ease;
+      margin-bottom: 12px;
+    }
+
+    .card-container:hover .badge {
+      background: rgba(0, 255, 255, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,255,255,0.5);
+    }
+
+    .card-title {
+      font-size: clamp(1.6rem, 4vw, 2rem);
+      margin-bottom: 12px;
+      text-shadow: 
+        0 0 10px var(--primary-glow),
+        0 0 20px var(--secondary-glow);
+      transition: text-shadow 0.3s ease;
+      letter-spacing: -0.5px;
+    }
+
+    .card-container:hover .card-title {
+      text-shadow: 
+        0 0 15px var(--primary-glow),
+        0 0 30px var(--secondary-glow);
+    }
+
+    .card-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      opacity: 0.85;
+      max-width: 280px;
+      margin: 0 auto;
+      transition: opacity 0.3s ease;
+    }
+
+    .card-container:hover .card-desc {
+      opacity: 1;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .card-container {
+        width: 90vw;
+        height: 200px;
+      }
+
+      .card-content {
+        margin: 2px;
+        max-width: calc(100% - 4px);
+      }
+    }
+
+    /* SVG Filter for electric outline distortion */
+    @keyframes noiseMotion {
+      0%, 100% { 
+        filter: url(#electric-outline); 
+      }
+      50% { 
+        filter: url(#electric-outline-alt); 
+      }
+    }
+
+    .card-container::before {
+      animation: noiseMotion 8s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container">
+    
+  </div>
+
+  <!-- SVG Filters for electric outline effect -->
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <filter id="electric-outline">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="1" result="noise">
+          <animate attributeName="baseFrequency" dur="4s" values="0.03;0.06;0.03" repeatCount="indefinite"/>
+          <animate attributeName="seed" dur="8s" values="1;3;1" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="displace"/>
+        <feGaussianBlur in="displace" stdDeviation="1.5" result="blur"/>
+        <feComposite in="blur" in2="SourceGraphic" operator="arithmetic" k1="0.5" k2="0.5" result="blend"/>
+      </filter>
+      <filter id="electric-outline-alt">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="2" result="noise">
+          <animate attributeName="baseFrequency" dur="3s" values="0.04;0.07;0.04" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="B" yChannelSelector="R" result="displace"/>
+        <feGaussianBlur in="displace" stdDeviation="0.5" result="blur"/>
+        <feBlend in="SourceGraphic" in2="blur" mode="screen" result="final"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <script>
+    // Optional: Add click interaction for accessibility/demo
+    document.querySelector('.card-container').addEventListener('click', function() {
+      this.style.transform = this.style.transform.includes('scale(0.95)') ? 'translateY(-8px) scale(1.02)' : 'scale(0.95)';
+    });
+  </script>
+</body>
+</html>
