@@ -51,14 +51,14 @@
       color: #000000;
     }
     
-    /* TEXT BOX FORMAT FOR ALL PAGES - SAME AS #letter */
+    /* TEXT BOX FORMAT FOR ALL PAGES - REDUCED LINE SPACING */
     .page-text {
       display: flex !important;
       flex-direction: column !important;
-      justify-content: space-around !important;
+      justify-content: flex-start !important;
       align-items: center !important;
       background-color: rgba(125, 187, 223, 0.101) !important;
-      padding: 15px !important;
+      padding: 10px !important;
       z-index: 5 !important;
       left: 15px !important;
       right: 15px !important;
@@ -67,13 +67,14 @@
       box-shadow: 0px 1px 3px 0px rgb(223, 31, 31),
         0px 1px 2px 0px rgba(2, 203, 92, 0.781) !important;
       overflow: hidden !important;
-      font-size: 25px !important;
+      font-size: 20px !important;
       position: absolute !important;
       width: calc(100% - 30px) !important;
       text-align: center !important;
       color: white !important;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
       transition: all 0.3s ease !important;
+      line-height: 1.1 !important;
     }
     
     .page-text:hover {
@@ -81,6 +82,31 @@
       box-shadow: 0px 2px 6px 0px rgb(255, 255, 0),
         0px 2px 4px 0px rgba(0, 255, 0, 0.8) !important;
       transform: scale(1.02) !important;
+    }
+    
+    /* COLOR HIGHLIGHTS FOR IMPORTANT TEXT */
+    .highlight {
+      color: #FFD700 !important; /* GOLD */
+      font-weight: bold !important;
+      
+    }
+    
+    .highlight-red {
+      color: #FF1493 !important; /* PINK */
+      font-weight: bold !important;
+      text-shadow: 0 0 5px #33ff14 !important;
+    }
+    
+    .highlight-green {
+      color: #00FF00 !important; /* GREEN */
+      font-weight: bold !important;
+      text-shadow: 0 0 5px #f700ff !important;
+    }
+    
+    .highlight-blue {
+      color: #00BFFF !important; /* BLUE */
+      font-weight: bold !important;
+      text-shadow: 0 0 5px #ff8000 !important;
     }
     
     /* PAGE NUMBER - SMALL RIGHT CORNER WITH HOVER */
@@ -147,11 +173,19 @@
     <!-- BACK COVER EMPTY -->
     <div class="hard"></div>
     
-    <!-- PAGE 1 -->
+    <!-- PAGE 1 - FULL COLOR HIGHLIGHT -->
     <div>
-      <img src="i (1).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 1">
+      <img src="i (14).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 1">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight-red">Dekho yaar, sorry...</span><br>
+        <span class="highlight">Ab mujhe realize hua ki maine aapko</span><br>
+        <span class="highlight-green">ek baar didi bol diya tha</span> —<br>
+        <span class="highlight-blue">date: 14 September 2024</span>.<br><br>
+        <span class="highlight">So, as a Hindu...</span><br><br>
+        <span class="highlight-red">Kya hi bolun yaar... bye.</span><br><br>
+        <span class="highlight">Baaki jo maine code likhe the,</span><br>
+        <span class="highlight-green">wo upload ho gaye hain,</span><br>
+        <span class="highlight-blue">only format hai, text nahi.</span>
       </div>
       <div class="page-number">1</div>
     </div>
@@ -160,7 +194,10 @@
     <div>
       <img src="i (2).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 2">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">2</div>
     </div>
@@ -169,7 +206,10 @@
     <div>
       <img src="i (3).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 3">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">3</div>
     </div>
@@ -178,7 +218,10 @@
     <div>
       <img src="i (4).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 4">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">4</div>
     </div>
@@ -187,7 +230,10 @@
     <div>
       <img src="i (5).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 5">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">5</div>
     </div>
@@ -196,7 +242,10 @@
     <div>
       <img src="i (6).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 6">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">6</div>
     </div>
@@ -205,7 +254,10 @@
     <div>
       <img src="i (7).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 7">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">7</div>
     </div>
@@ -214,7 +266,10 @@
     <div>
       <img src="i (8).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 8">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">8</div>
     </div>
@@ -223,7 +278,10 @@
     <div>
       <img src="i (9).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 9">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">9</div>
     </div>
@@ -232,7 +290,10 @@
     <div>
       <img src="i (10).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 10">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">10</div>
     </div>
@@ -241,7 +302,10 @@
     <div>
       <img src="i (11).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 11">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">11</div>
     </div>
@@ -250,7 +314,10 @@
     <div>
       <img src="i (12).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 12">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">12</div>
     </div>
@@ -259,7 +326,10 @@
     <div>
       <img src="i (13).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 13">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">13</div>
     </div>
@@ -268,7 +338,10 @@
     <div>
       <img src="i (14).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 14">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">14</div>
     </div>
@@ -277,7 +350,10 @@
     <div>
       <img src="i (15).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 15">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">15</div>
     </div>
@@ -286,7 +362,10 @@
     <div>
       <img src="i (16).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 16">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">16</div>
     </div>
@@ -295,7 +374,10 @@
     <div>
       <img src="i (17).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 17">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">17</div>
     </div>
@@ -304,7 +386,10 @@
     <div>
       <img src="i (18).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 18">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">18</div>
     </div>
@@ -313,7 +398,10 @@
     <div>
       <img src="i (19).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 19">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">19</div>
     </div>
@@ -322,7 +410,10 @@
     <div>
       <img src="i (20).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 20">
       <div class="page-text">
-        FLIP THE PAGE AND ENTER YOUT TEXT
+        <span class="highlight">YOUR TEXT HERE</span><br>
+        <span class="highlight-red">Line 2</span><br>
+        <span class="highlight-green">Line 3</span><br>
+        <span class="highlight-blue">Line 4</span>
       </div>
       <div class="page-number">20</div>
     </div>
