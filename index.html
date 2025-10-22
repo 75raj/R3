@@ -51,12 +51,12 @@
       color: #000000;
     }
     
-    /* TEXT BOX FORMAT FOR ALL PAGES - REDUCED LINE SPACING */
+    /* TEXT BOX FORMAT FOR ALL PAGES */
     .page-text {
       display: flex !important;
       flex-direction: column !important;
       justify-content: flex-start !important;
-      align-items: center !important;
+      align-items: flex-start !important; /* LEFT ALIGN */
       background-color: rgba(125, 187, 223, 0.101) !important;
       padding: 10px !important;
       z-index: 5 !important;
@@ -70,11 +70,11 @@
       font-size: 20px !important;
       position: absolute !important;
       width: calc(100% - 30px) !important;
-      text-align: center !important;
+      text-align: left !important; /* LEFT ALIGN */
       color: white !important;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
       transition: all 0.3s ease !important;
-      line-height: 1.1 !important;
+      line-height: 1.0 !important; /* LESS LINE SPACING */
     }
     
     .page-text:hover {
@@ -84,32 +84,39 @@
       transform: scale(1.02) !important;
     }
     
-    /* COLOR HIGHLIGHTS FOR IMPORTANT TEXT */
-    .highlight {
-      color: #FFD700 !important; /* GOLD */
-      font-weight: bold !important;
-      
+    /* PAGE 2 SPECIAL STYLING - 60 WORDS MAX, SMALL FONT, LESS SPACING */
+    .page-text.page2 {
+      background-color: rgba(255, 165, 0, 0.2) !important;
+      color: #1a1a1a !important;
+      font-size: 14px !important; /* SMALLER FONT FOR 60 WORDS */
+      line-height: 1.0 !important; /* TIGHT SPACING */
+      padding: 8px !important;
+      box-shadow: 0px 1px 3px 0px rgb(255, 140, 0),
+        0px 1px 2px 0px rgba(255, 69, 0, 0.8) !important;
+      align-items: flex-start !important;
+      text-align: left !important;
     }
     
-    .highlight-red {
-      color: #FF1493 !important; /* PINK */
-      font-weight: bold !important;
-      text-shadow: 0 0 5px #33ff14 !important;
+    .page-text.page2:hover {
+      background-color: rgba(255, 69, 0, 0.3) !important;
+      box-shadow: 0px 2px 6px 0px rgb(255, 215, 0),
+        0px 2px 4px 0px rgba(255, 140, 0, 0.8) !important;
     }
     
-    .highlight-green {
-      color: #00FF00 !important; /* GREEN */
-      font-weight: bold !important;
-      text-shadow: 0 0 5px #f700ff !important;
-    }
+    /* PAGE 2 HIGHLIGHTS - NO GLOW */
+    .page2 .highlight-gold { color: #FFD700 !important; font-weight: bold !important; }
+    .page2 .highlight-purple { color: #8A2BE2 !important; font-weight: bold !important; }
+    .page2 .highlight-teal { color: #20B2AA !important; font-weight: bold !important; }
+    .page2 .highlight-lime { color: #32CD32 !important; font-weight: bold !important; }
+    .page2 .highlight-magenta { color: #FF00FF !important; font-weight: bold !important; }
     
-    .highlight-blue {
-      color: #00BFFF !important; /* BLUE */
-      font-weight: bold !important;
-      text-shadow: 0 0 5px #ff8000 !important;
-    }
+    /* OTHER PAGES HIGHLIGHTS */
+    .highlight { color: #FFD700 !important; font-weight: bold !important; }
+    .highlight-red { color: #FF1493 !important; font-weight: bold !important; text-shadow: 0 0 5px #33ff14 !important; }
+    .highlight-green { color: #00FF00 !important; font-weight: bold !important; text-shadow: 0 0 5px #f700ff !important; }
+    .highlight-blue { color: #00BFFF !important; font-weight: bold !important; text-shadow: 0 0 5px #ff8000 !important; }
     
-    /* PAGE NUMBER - SMALL RIGHT CORNER WITH HOVER */
+    /* PAGE NUMBER */
     .page-number {
       position: absolute !important;
       bottom: 10px !important;
@@ -127,7 +134,7 @@
       transition: all 0.3s ease !important;
       width: 25px !important;
       height: 25px !important;
-      display: flex !important;N
+      display: flex !important;
       align-items: center !important;
       justify-content: center !important;
     }
@@ -173,7 +180,7 @@
     <!-- BACK COVER EMPTY -->
     <div class="hard"></div>
     
-    <!-- PAGE 1 - FULL COLOR HIGHLIGHT -->
+    <!-- PAGE 1 -->
     <div>
       <img src="R.jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 1">
       <div class="page-text">
@@ -190,15 +197,23 @@
       <div class="page-number">1</div>
     </div>
     
-    <!-- PAGE 2 -->
+    <!-- PAGE 2 - 60 WORDS MAX, LEFT ALIGN, TIGHT SPACING -->
     <div>
       <img src="i (2).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 2">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
+      <div class="page-text page2">
+      <span class="highlight-gold">Main detail me explain nahi kar sakta, lekin jo answer mujhe chahiye tha, wo mujhe khud mil gaya.</span><br>
+<span class="highlight-purple">Abhi meri age 18 hai, aur ye time study par focus karne ka hai.</span><br>
+<span class="highlight-teal">Maine past me aapko ‘didi’ bola tha, to aap mere liye sister jaisi hi ho gaye.</span><br>
+<span class="highlight-lime">Please mere purane messages bhool jao.</span><br>
+<span class="highlight-magenta">Main bas thoda excited tha, code to propose ke leye likhe the but  aur maine 3 din lagataar code likhe.</span><br>
+<span class="highlight-gold">Uske baad laga ki jisey ek baar ‘didi’ keh diya, uske liye aur kuch sochna theek nahi hai.</span><br>
+<span class="highlight-purple">Har chat puja me hum apne aap se kuch na kuch self promise karte hain.</span><br>
+<span class="highlight-teal">Do saal pehle maine apne aap se vada kiya tha ki agar kisi ke liye attraction feel ho,</span><br>
+<span class="highlight-lime">to use ‘didi’ keh dunga — jab tak 12th pass na ho jaaye.</span><br>
+<span class="highlight-magenta">Bas ek baat kehni thi — agar aap ye padho to achha, aur agar na bhi padho to bhi best wishes.</span><br>
+<span class="highlight-gold">Bas itna hi, please complaint mat karna.</span><br>
+<span class="highlight-purple">Aur ek choti si baat karni thi aap se.</span>
+</div>
       <div class="page-number">2</div>
     </div>
     
@@ -226,198 +241,6 @@
       <div class="page-number">4</div>
     </div>
     
-    <!-- PAGE 5 -->
-    <div>
-      <img src="i (5).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 5">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">5</div>
-    </div>
-    
-    <!-- PAGE 6 -->
-    <div>
-      <img src="i (6).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 6">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">6</div>
-    </div>
-    
-    <!-- PAGE 7 -->
-    <div>
-      <img src="i (7).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 7">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">7</div>
-    </div>
-    
-    <!-- PAGE 8 -->
-    <div>
-      <img src="i (8).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 8">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">8</div>
-    </div>
-    
-    <!-- PAGE 9 -->
-    <div>
-      <img src="i (9).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 9">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">9</div>
-    </div>
-    
-    <!-- PAGE 10 -->
-    <div>
-      <img src="i (10).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 10">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">10</div>
-    </div>
-    
-    <!-- PAGE 11 -->
-    <div>
-      <img src="i (11).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 11">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">11</div>
-    </div>
-    
-    <!-- PAGE 12 -->
-    <div>
-      <img src="i (12).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 12">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">12</div>
-    </div>
-    
-    <!-- PAGE 13 -->
-    <div>
-      <img src="i (13).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 13">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">13</div>
-    </div>
-    
-    <!-- PAGE 14 -->
-    <div>
-      <img src="i (14).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 14">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">14</div>
-    </div>
-    
-    <!-- PAGE 15 -->
-    <div>
-      <img src="i (15).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 15">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">15</div>
-    </div>
-    
-    <!-- PAGE 16 -->
-    <div>
-      <img src="i (16).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 16">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">16</div>
-    </div>
-    
-    <!-- PAGE 17 -->
-    <div>
-      <img src="i (17).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 17">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">17</div>
-    </div>
-    
-    <!-- PAGE 18 -->
-    <div>
-      <img src="i (18).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 18">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">18</div>
-    </div>
-    
-    <!-- PAGE 19 -->
-    <div>
-      <img src="i (19).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 19">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">19</div>
-    </div>
-    
-    <!-- PAGE 20 -->
-    <div>
-      <img src="i (20).jpeg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;" alt="Page 20">
-      <div class="page-text">
-        <span class="highlight">YOUR TEXT HERE</span><br>
-        <span class="highlight-red">Line 2</span><br>
-        <span class="highlight-green">Line 3</span><br>
-        <span class="highlight-blue">Line 4</span>
-      </div>
-      <div class="page-number">20</div>
-    </div>
-    
     <!-- BACK COVER EMPTY -->
     <div class="hard"></div>
     <!-- END COVER -->
@@ -440,38 +263,28 @@
       gradients: true,
       elevation: 50,
       when: {
-        turned: function(event, page, view) {
-          // No video handling needed for images
-        }
+        turned: function(event, page, view) {}
       }
     });
 
-    // Next Button
     $("#nextBtn").click(function() {
       flipbook.turn("next");
     });
 
-    // Previous Button
     $("#prevBtn").click(function() {
       flipbook.turn("previous");
     });
 
-    // Keyboard Shortcuts
     $(document).keydown(function(e) {
-      if (e.keyCode == 78 || e.keyCode == 39) { // N key or Right Arrow
+      if (e.keyCode == 78 || e.keyCode == 39) {
         e.preventDefault();
         flipbook.turn("next");
       }
-      if (e.keyCode == 66 || e.keyCode == 37) { // B key or Left Arrow
+      if (e.keyCode == 66 || e.keyCode == 37) {
         e.preventDefault();
         flipbook.turn("previous");
       }
     });
-
-    // Instructions
-    console.log("Keyboard Shortcuts:");
-    console.log("N or → = Next Page");
-    console.log("B or ← = Previous Page");
   </script>
 </body>
 
